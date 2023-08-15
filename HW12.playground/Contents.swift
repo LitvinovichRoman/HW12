@@ -4,8 +4,9 @@
  Создайте коллекцию типа [Any], включающую несколько вещественных чисел, целых, строк и булевых значений.  Распечатайте содержимое коллекции.
  */
 private var anyCollection: [Any] = [3.14, 42, 12, 21.12, "Hello", true]
-print("Collection content: \(anyCollection)")
-print("------------------------")
+for item in items {
+    print(item)
+}print("------------------------")
 /*:
  Пройдите по всем элементам коллекции.  Для каждого целого, напечайте "Целое число " и его значение.  Повторите то же самое для вещественных чисел, строк и булевых значений.
  */
@@ -24,7 +25,11 @@ print("------------------------")
 /*:
  Создайте словарь [String : Any], где все значения — это смесь вещественных и целых чисел, строк и булевых значений.  Выведите крассиво на консоль пары ключ/значения для всех элементов коллекции.
  */
-private var someDictionary: [String: Any] = ["key1": 3.14, "Swift": 42, "key3": "Hello", "key2": true, "key4": "12"]
+private var someDictionary: [String: Any] = ["key1": 3.14,
+                                             "Swift": 42,
+                                             "key3": "Hello",
+                                             "key2": true,
+                                             "key4": "12"]
 
 for (key, value) in someDictionary {
     print("Key: \(key), value: \(value)")
@@ -43,11 +48,7 @@ for value in someDictionary.values {
     } else if let string = value as? String {
         total += 1
     } else if let booleanValue = value as? Bool {
-        if booleanValue {
-            total += 2
-        } else {
-            total -= 3
-        }
+        total += value ? 2 : -3
     }
 }
 
